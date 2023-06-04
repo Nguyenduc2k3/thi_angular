@@ -1,0 +1,19 @@
+<a routerLink="product-create">Create New</a>
+<div class="container">
+  <div class="row">
+    <div class="col-3">STT</div>
+    <div class="col-3">Name</div>
+    <div class="col-3">Price</div>
+    <div class="col-3">Action</div>
+  </div>
+  <div class="row" *ngFor="let product of products; index as i">
+    <div class="col-3">{{ i + 1 }}</div>
+    <div class="col-3">{{ product.name }}</div>
+    <div class="col-3">{{ product.price }}</div>
+    <div class="col-3 d-flex justify-content-around">
+        <button class="btn" [routerLink]="'product-detail/' + product.id">View Detail</button>
+        <button class="btn btn-danger" (click)="delete(product.id!)">Xóa</button>
+        <a class="btn btn-warning" [routerLink]="'products-update/' + product.id">Update</a>
+      </div>
+  </div>
+</div>
